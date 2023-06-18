@@ -1,6 +1,5 @@
 import runpod
 from model import GPT2PPLV2
-from flask import jsonify
 
 detector = GPT2PPLV2()
 
@@ -12,7 +11,7 @@ def handler(event):
     
     result = detector(text, 100, "v1.1")
     
-    return jsonify(result)
+    return result
 
 runpod.serverless.start({
     "handler": handler
